@@ -117,24 +117,29 @@ Comment.index(
   }
 );
 
+// Added an index useful for finding the non-deleted comments for admin/moderator tools due to 4.4.0 adding the deleted_at key
 Comment.index(
   {
     status: 1,
+    deleted_at: 1,
     created_at: 1,
   },
   {
     background: true,
+    sparse: true
   }
 );
 
 Comment.index(
   {
     status: 1,
+    deleted_at: 1,
     created_at: 1,
     asset_id: 1,
   },
   {
     background: true,
+    sparse: true
   }
 );
 
